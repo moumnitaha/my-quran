@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { BiHomeAlt2 } from "react-icons/bi";
 
 interface ayah {
   audio: string;
@@ -80,15 +82,19 @@ export default function Page() {
           <div className="prv-next">
             <NavLink to={`/${page && +page + 1}`}>
               <button disabled={page && +page == 604 ? true : false}>
-                Next
+                <FaChevronLeft />
               </button>
             </NavLink>
             <NavLink to={`/${page && +page - 1}`}>
-              <button disabled={page && +page == 1 ? true : false}>Prev</button>
+              <button disabled={page && +page == 1 ? true : false}>
+                <FaChevronRight />
+              </button>
             </NavLink>
           </div>
           <NavLink to={"/"}>
-            <button>Home</button>
+            <button>
+              <BiHomeAlt2 />
+            </button>
           </NavLink>
         </footer>
       )}
